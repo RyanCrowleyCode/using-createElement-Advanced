@@ -9,12 +9,8 @@ article.id = "messages"
 myContainer.appendChild(article)
 
 
-// In your JavaScript, use querySelector() to obtain a reference to that article DOM element.
-
-
-// Create five (5) section components, each with a class of message, and with the content of your choosing.
-// Using appendChild(), attach each message as a child to the messages element.
-// Example output.
+// creating a dom fragment variable
+const fragment = document.createDocumentFragment()
 
 // creating elements for 5 messages
 const message1 = document.createElement('section')
@@ -26,12 +22,15 @@ const message5 = document.createElement('section')
 // a list of messages to cycle through
 const messageList = [message1, message2, message3, message4, message5]
 
-// assigning className of message to each message, adding the innerHTML with corresponding message number, appending final message to article
+// assigning className of message to each message, adding the innerHTML with corresponding message number, appending final message to fragment
 for (let i = 0; i < messageList.length; i++) {
     messageList[i].className = "message"
     messageList[i].innerHTML = `This is message number ${i +1}`
-    article.appendChild(messageList[i])
+    fragment.appendChild(messageList[i])
 }
+
+// sending fragment to the DOM inside the article div
+article.appendChild(fragment)
 
 
 
